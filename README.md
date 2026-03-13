@@ -8,38 +8,36 @@ To write a python program for creating Chat using TCP Sockets Links.
  server
 4. Send and receive the message using the send function in socket.
 ## PROGRAM
-### sever side
+server.py
 ```
-import socket 
-s=socket.socket() 
-s.bind(('localhost',8000)) 
-s.listen(5) 
-c,addr=s.accept() 
-while True: 
-            ClientMessage=c.recv(1024).decode() 
-            print("Client > ",ClientMessage) 
-            msg=input("Server > ") 
-            c.send(msg.encode())
+
+import socket
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+while True:
+    ClientMessage=c.recv(1024).decode()
+    print("Client > ",ClientMessage)
+    msg=input("Server > ")
+    c.send(msg.encode())
 ```
-### client side
+client.py
 ```
-import socket 
-s=socket.socket() 
-s.connect(('localhost',8000)) 
-while True: 
-    msg=input("Client > ") 
-    s.send(msg.encode()) 
+
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+    msg=input("Client > ")
+    s.send(msg.encode())
     print("Server > ",s.recv(1024).decode())
 ```
 ## OUPUT
+<img width="741" height="168" alt="Screenshot 2026-03-11 085636" src="https://github.com/user-attachments/assets/d4c0e513-239f-49dc-9205-93b009adffe0" />
 
-### sever side
+<img width="737" height="170" alt="Screenshot 2026-03-11 085641" src="https://github.com/user-attachments/assets/c9ee3785-3355-4815-bfff-9a6f3cd05f2f" />
 
-<img width="834" height="475" alt="image" src="https://github.com/user-attachments/assets/f33b2212-5e68-4b6b-9351-13492bb002e7" />
-
-### client side
-
-<img width="832" height="467" alt="image" src="https://github.com/user-attachments/assets/3fe2abcd-37fa-45e1-9a90-ec5860a903c4" />
 
 ## RESULT
 Thus, the python program for creating Chat using TCP Sockets Links was successfully 
